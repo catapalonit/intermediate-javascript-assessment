@@ -7,20 +7,20 @@
 
 // Given the following nested functions:
 
-function daBears(){
+function daBears() {
   var isFurry = true;
 
-  function papaBear (){
+  function papaBear() {
     var porridge = "Too Hot!";
     var chair = "Too Big!";
     var bed = "Too Hard!";
     var feeling = "Angry";
 
-    function mamaBear(){
+    function mamaBear() {
       var porridge = "Too Cold!";
       var bed = "Too Soft!";
 
-      function babyBear(){
+      function babyBear() {
         var porridge = "Just right!";
         var chair = "Just right!";
         var bed = "Just right!";
@@ -30,7 +30,7 @@ function daBears(){
     }
   }
 
-  function goldilocks(){
+  function goldilocks() {
     var feeling = "Hungry";
     var isFurry = false;
     var isDinner = true;
@@ -43,27 +43,27 @@ function daBears(){
 // Which function(s) access the "chair" variable and get "Too Big!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale1 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale1 = ["papaBear", "mamaBear"];
 
 // Which function(s) access the "feeling" variable and get "Hungry"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale2 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale2 = ["goldilocks"];
 
 // Which function(s) access the "porridge" variable and get "Too Cold!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale3 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale3 = ["mamaBear"];
 
 // Which function(s) access the "sleepy" variable and get undefined
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale4 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale4 = ["daBears", "papaBear", "mamaBear", "goldilocks"];
 
 // Which function(s) access the isFurry variable and get true
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear"];
 
 
 // *************
@@ -82,6 +82,21 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // "charger" once, and invoke it twice on "mustang".
 
 // CODE HERE...
+
+function Vehicle() {
+  this.gasRemaining = 100
+}
+
+Vehicle.prototype.drive = function () {
+  this.gasRemaining = this.gasRemaining - 25
+}
+
+var mustang = new Vehicle()
+var charger = new Vehicle()
+
+this.charger.drive()
+this.mustang.drive()
+this.mustang.drive()
 
 
 
@@ -108,6 +123,21 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 
 
 // CODE HERE...
+//string.prototype is String.prototype CAPITALIZED
+//
+
+
+String.prototype.grammarPolice = function () {
+  newString = this.toLowerCase().split(" ")
+
+  for (var i = 0; i < newString.length; i++) {
+    newString[i] = newString[i].charAt(0).toUpperCase() + newString[i].substr(1)
+  }
+  return newString.join(" ")
+
+}
+"i hate jav4script".grammarPolice()
+
 
 
 
@@ -126,6 +156,20 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // In all other cases, return "Different values"
 
 // CODE HERE...
+// basically is typeof the same for params
+//CANT USE TRIPLE EQUALS ON SECOND ONE BECAUSE 5 AS A  NUMBER IS NOT STRICT EQUALITY AS 5 AS A STRING
+
+function valueType(a, num1) {
+  console.log("A: ", a)
+  console.log("num1: ", num1)
+  if (typeof a === typeof num1 & a === num1) {
+    return "Exactly the same" //if type of a and type of num1 are same and a and num 1 are same
+  }
+  else if (a == num1 & typeof a !== typeof num1) { //if a and num1 are the same BUT theyre different types
+    return "Same value, different types"
+  }
+  else { return "Different values" }
+}
 
 
 
@@ -141,3 +185,11 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 var theAnswer = "Unknown";
 
 // CODE HERE...
+
+function promiseCatcher(parameter) {
+  parameter.then(function (value) {
+    TheAnswer = value
+    return value
+  })
+
+}
